@@ -2,6 +2,8 @@
 
 This project provisions GCP infrastructure using Terraform with a modular structure. It creates a VPC network, a VM running Apache on Debian 11, and a Cloud Storage bucket with a data retention policy.
 
+The project is integrated with Terraform Cloud for centralized state management. Terraform Cloud securely stores the Terraform state file, enabling state locking, versioning, and collaboration among team members. This prevents conflicts during concurrent updates and ensures infrastructure consistency across environments.
+
 ---
 
 ## 📁 Project Structure
@@ -61,17 +63,22 @@ This project provisions GCP infrastructure using Terraform with a modular struct
 ### 1. Authenticate with GCP
 Place your service account credentials file as `key.json` in the root directory.
 
-### 2. Initialize Terraform
+### 2. Login to Terraform Cloud
+```bash
+terraform login
+```
+
+### 3. Initialize Terraform
 ```bash
 terraform init
 ```
 
-### 3. Review the Plan
+### 4. Review the Plan
 ```bash
 terraform plan
 ```
 
-### 4. Apply the Configuration
+### 5. Apply the Configuration
 ```bash
 terraform apply --auto-approve
 ```
